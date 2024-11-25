@@ -329,354 +329,17 @@ List<String> kidsJewelleryNames = [
                   SizedBox(height: 50,),
                   Text("Wrapped with love!",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
                   SizedBox(height: 20,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: SizedBox(
-                      height: 630,
-                    child: MasonryGridView.builder(
-                    itemCount: 6,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                      
-                      crossAxisCount: 3),
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 20,
-                      
-                     itemBuilder: (context,index)=>
-                         Column(
-                           children: [
-                             Container(
-                              height: index.isEven?270:220,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                image: DecorationImage
-                                
-                                (
-                                  
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(mason[index]))
-                              ),
-                             ),
-                             SizedBox(height: 5,),
-                             Text(masonText[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14),)
-                           ],
-                         ),
-                        
-                     ),
-                                ),
-                ),
+                _buildMasonryGridView(),
                 SizedBox(height: 50,),
-                  Text("Shop.Style.Flaunt.",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
-                 SizedBox(height: 20,),
-                 Padding(
-                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                   child: Column(
-                     children: [
-                       SizedBox(
-                        height: 300,
-                         child: GridView.builder(
-                          itemCount: 6,
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                crossAxisCount: 3), 
-                              itemBuilder: (context,index)=>Column(
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(shopImages[index])
-                                      )
-                                    ),
-                                  ),
-                                  Text(mytext[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14),)
-                                ],
-                              )
-                              ),
-                       ),
-                       Container(
-        height: 30,
-        width: 70,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          gradient: LinearGradient(
-            
-            colors:[
-              Colors.pink,
-              ColorConstants.purple,
-              ColorConstants.purple1
-            ]
-            )
-        ),
-        child: Center(child: Text("View All",style: GoogleFonts.montserrat(color: ColorConstants.white),)),
-      ),
-                     ],
-                   ),
-                 ),
-                  SizedBox(height: 50,),
-                  Text("Jewellery Categories",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
-                 SizedBox(height: 20,),
-                 Padding(
-                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                   child: Column(
-                     children: [
-                       SizedBox(
-                        height: 470,
-                         child: GridView.builder(
-                          itemCount: 4,
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                crossAxisCount: 2), 
-                              itemBuilder: (context,index)=>Column(
-                                children: [
-                                  Container(
-                                    height:200,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(myImges[index])
-                                      )
-                                    ),
-                                  ),
-                                  Text(myImg[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 16,fontWeight: FontWeight.w500),)
-                                ],
-                              )
-                              ),
-                       ),
-                       Container(
-        height: 30,
-        width: 70,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          gradient: LinearGradient(
-            
-            colors:[
-              Colors.pink,
-              ColorConstants.purple,
-              ColorConstants.purple1
-            ]
-            )
-        ),
-        child: Center(child: Text("View All",style: GoogleFonts.montserrat(color: ColorConstants.white),)),
-      ),
-                     ],
-                   ),
-                 ),
-                 SizedBox(height: 50,),
-                  Text("Men's Jewellery",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
-                 SizedBox(height: 20,),
-                 Padding(
-                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                   child: Column(
-                     children: [
-                       SizedBox(
-                        height: 300,
-                         child: GridView.builder(
-                          itemCount: 6,
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                crossAxisCount: 3), 
-                              itemBuilder: (context,index)=>Column(
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage("https://images.pexels.com/photos/16109294/pexels-photo-16109294/free-photo-of-man-wearing-rattlesnake-tail-pendant-necklace-and-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=600")
-                                      )
-                                    ),
-                                  ),
-                                  Text(menJewelleryNames[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14),)
-                                ],
-                              )
-                              ),
-                       ),
-                       Container(
-        height: 30,
-        width: 70,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          gradient: LinearGradient(
-            
-            colors:[
-              Colors.pink,
-              ColorConstants.purple,
-              ColorConstants.purple1
-            ]
-            )
-        ),
-        child: Center(child: Text("View All",style: GoogleFonts.montserrat(color: ColorConstants.white),)),
-      ),
-                     ],
-                   ),
-                 ),
-                 SizedBox(height: 50,),
-                  Text("Kid's Jewellery",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
-                 SizedBox(height: 20,),
-                 Padding(
-                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                   child: Column(
-                     children: [
-                       SizedBox(
-                        height: 300,
-                         child: GridView.builder(
-                          itemCount: 6,
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                crossAxisCount: 3), 
-                              itemBuilder: (context,index)=>Column(
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage("https://images.pexels.com/photos/2848522/pexels-photo-2848522.jpeg?auto=compress&cs=tinysrgb&w=600")
-                                      )
-                                    ),
-                                  ),
-                                  Text(kidsJewelleryNames[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14),)
-                                ],
-                              )
-                              ),
-                       ),
-                       Container(
-        height: 30,
-        width: 70,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          gradient: LinearGradient(
-            
-            colors:[
-              Colors.pink,
-              ColorConstants.purple,
-              ColorConstants.purple1
-            ]
-            )
-        ),
-        child: Center(child: Text("View All",style: GoogleFonts.montserrat(color: ColorConstants.white),)),
-      ),
-                     ],
-                   ),
-                 ),
+                  _buildSameGrids(),
 
 
 
                  SizedBox(height: 50,),
-                 Container(
-                  color: ColorConstants.lightpurple,
-                  child: Column(
-
-                    children: [
-                      SizedBox(height: 20,),
-                      Text("Recently Viewed",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
-                      SizedBox(height: 40,),
-                      SizedBox(
-                        height: 200,
-                        child: GridView.builder(
-                            itemCount: 4,
-                            scrollDirection: Axis.horizontal,
-                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                  
-                                  crossAxisCount: 1), 
-                                itemBuilder: (context,index)=>Column(
-                                  children: [
-                                    Container(
-                                      height: 150,
-                                      width: 180,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image:ornamentImages[index]
-                                        )
-                                      ),
-                                    ),
-                                    Text(jewelleryNames[index],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 10,)),
-                                    Text(jewelleryPrices[index],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 10,)),
-                                  ],
-                                )
-                                ),
-
-                      ),
-                       SizedBox(height: 30,),
-                      Text("Customer Stories",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
-                      SizedBox(height: 30,),
-                      SizedBox(
-                        height: 220,
-                        child: PageView.builder(
-                          itemCount: 4,
-                          controller: textController,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder:(context,index)=> Column(
-                            children: [
-                          CircleAvatar(backgroundImage: NetworkImage("https://images.pexels.com/photos/3410701/pexels-photo-3410701.jpeg?auto=compress&cs=tinysrgb&w=600"),),
-                                              SizedBox(height: 10,),
-                                               
-                          RatingBarIndicator(
-                            
-                             rating: 5,
-                              itemBuilder: (context, index) => Icon(
-                                   Icons.star,
-                                   color: Colors.amber,
-                                   
-                              ),
-                              itemCount: 5,
-                              itemSize: 20.0,
-                              direction: Axis.horizontal,
-                            ),
-                            SizedBox(height: 10,),
-                          Text(names[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 12,fontWeight: FontWeight.w500),),
-                          SizedBox(height: 30,),
-                          Container(
-                            width: 270,
-                            child: Text(
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                              softWrap: true,
-                            textAlign: TextAlign.center,
-                              reviews[index],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 10,),),
-                          )
-                            ]),
-                        ),
-                      ),
-                      SmoothPageIndicator(    
-   controller: textController,    
-   count:  4,    
-   axisDirection: Axis.horizontal,    
-   effect:  SlideEffect(    
-      spacing:  8.0,    
-      
-      dotWidth:  39.0,    
-      dotHeight:  4.0,    
-      paintStyle:  PaintingStyle.stroke,    
-      strokeWidth:  1.5,    
-      dotColor:  Colors.grey,    
-      activeDotColor:  Colors.indigo    
-  ), 
-),
-SizedBox(height: 30,),
-                    ],
-                  ),
+                 Column(
+                   children: [
+                     _buildRecentViewsAndReviews(),
+                   ],
                  )
                 
                   
@@ -685,34 +348,7 @@ SizedBox(height: 30,),
              ),
            ),
            
-          InkWell(
-            onTap: (){
-              showBottomSheet(context: context,
-               builder: (context)=>Container(
-                height: 180,
-               
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image:AssetImage("assets/images/WhatsApp Image 2024-11-17 at 12.48.10.jpeg"))
-                ),
-               )
-               );
-            },
-            child: Container(
-              padding: EdgeInsets.all(10),
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.vertical(top:Radius.circular(15)),
-                color: ColorConstants.purpledark
-              ),
-              child: Row(
-                children: [
-                  Text("You Have Offers",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 10,),),
-                  Icon(Icons.arrow_drop_up_sharp,color: Colors.white,)
-                ],
-              ),
-            ),
-          )
+          _buildBottomSheetDiscounts(context)
 
           ],
         ),
@@ -720,6 +356,398 @@ SizedBox(height: 30,),
 
     );
     
+  }
+
+  Column _buildBottomSheetDiscounts(BuildContext context) {
+    return Column(
+          children: [
+            InkWell(
+              onTap: (){
+                showBottomSheet(context: context,
+                 builder: (context)=>Container(
+                  height: 180,
+                 
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image:AssetImage("assets/images/WhatsApp Image 2024-11-17 at 12.48.10.jpeg"))
+                  ),
+                 )
+                 );
+              },
+              child: Container(
+                padding: EdgeInsets.all(10),
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.vertical(top:Radius.circular(15)),
+                  color: ColorConstants.purpledark
+                ),
+                child: Row(
+                  children: [
+                    Text("You Have Offers",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 10,),),
+                    Icon(Icons.arrow_drop_up_sharp,color: Colors.white,)
+                  ],
+                ),
+              ),
+            ),
+          ],
+        );
+  }
+
+  Container _buildRecentViewsAndReviews() {
+    return Container(
+                    color: ColorConstants.lightpurple,
+                    child: Column(
+                   
+                      children: [
+                        SizedBox(height: 20,),
+                        Text("Recently Viewed",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
+                        SizedBox(height: 40,),
+                        SizedBox(
+                          height: 200,
+                          child: GridView.builder(
+                              itemCount: 4,
+                              scrollDirection: Axis.horizontal,
+                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                    
+                                    crossAxisCount: 1), 
+                                  itemBuilder: (context,index)=>Column(
+                                    children: [
+                                      Container(
+                                        height: 150,
+                                        width: 180,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image:ornamentImages[index]
+                                          )
+                                        ),
+                                      ),
+                                      Text(jewelleryNames[index],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 10,)),
+                                      Text(jewelleryPrices[index],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 10,)),
+                                    ],
+                                  )
+                                  ),
+                   
+                        ),
+                         SizedBox(height: 30,),
+                        Text("Customer Stories",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
+                        SizedBox(height: 30,),
+                        SizedBox(
+                          height: 220,
+                          child: PageView.builder(
+                            itemCount: 4,
+                            controller: textController,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder:(context,index)=> Column(
+                              children: [
+                            CircleAvatar(backgroundImage: NetworkImage("https://images.pexels.com/photos/3410701/pexels-photo-3410701.jpeg?auto=compress&cs=tinysrgb&w=600"),),
+                                                SizedBox(height: 10,),
+                                                 
+                            RatingBarIndicator(
+                              
+                               rating: 5,
+                                itemBuilder: (context, index) => Icon(
+                                     Icons.star,
+                                     color: Colors.amber,
+                                     
+                                ),
+                                itemCount: 5,
+                                itemSize: 20.0,
+                                direction: Axis.horizontal,
+                              ),
+                              SizedBox(height: 10,),
+                            Text(names[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 12,fontWeight: FontWeight.w500),),
+                            SizedBox(height: 30,),
+                            Container(
+                              width: 270,
+                              child: Text(
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: true,
+                              textAlign: TextAlign.center,
+                                reviews[index],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 10,),),
+                            )
+                              ]),
+                          ),
+                        ),
+                        SmoothPageIndicator(    
+                      controller: textController,    
+                      count:  4,    
+                      axisDirection: Axis.horizontal,    
+                      effect:  SlideEffect(    
+                         spacing:  8.0,    
+                         
+                         dotWidth:  39.0,    
+                         dotHeight:  4.0,    
+                         paintStyle:  PaintingStyle.stroke,    
+                         strokeWidth:  1.5,    
+                         dotColor:  Colors.grey,    
+                         activeDotColor:  Colors.indigo    
+                     ), 
+                   ),
+                   SizedBox(height: 30,),
+                      ],
+                    ),
+                   );
+  }
+
+  Column _buildSameGrids() {
+    return Column(
+                  children: [
+                    Text("Shop.Style.Flaunt.",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
+                 
+               SizedBox(height: 20,),
+               Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 16),
+                 child: Column(
+                   children: [
+                     SizedBox(
+                      height: 300,
+                       child: GridView.builder(
+                        itemCount: 6,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 10,
+                              crossAxisSpacing: 10,
+                              crossAxisCount: 3), 
+                            itemBuilder: (context,index)=>Column(
+                              children: [
+                                Container(
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(shopImages[index])
+                                    )
+                                  ),
+                                ),
+                                Text(mytext[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14),)
+                              ],
+                            )
+                            ),
+                     ),
+                     Container(
+      height: 30,
+      width: 70,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        gradient: LinearGradient(
+          
+          colors:[
+            Colors.pink,
+            ColorConstants.purple,
+            ColorConstants.purple1
+          ]
+          )
+      ),
+      child: Center(child: Text("View All",style: GoogleFonts.montserrat(color: ColorConstants.white),)),
+    ),
+                   ],
+                 ),
+               ),
+                SizedBox(height: 50,),
+                Text("Jewellery Categories",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
+               SizedBox(height: 20,),
+               Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 16),
+                 child: Column(
+                   children: [
+                     SizedBox(
+                      height: 470,
+                       child: GridView.builder(
+                        itemCount: 4,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 10,
+                              crossAxisSpacing: 10,
+                              crossAxisCount: 2), 
+                            itemBuilder: (context,index)=>Column(
+                              children: [
+                                Container(
+                                  height:200,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(myImges[index])
+                                    )
+                                  ),
+                                ),
+                                Text(myImg[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 16,fontWeight: FontWeight.w500),)
+                              ],
+                            )
+                            ),
+                     ),
+                     Container(
+      height: 30,
+      width: 70,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        gradient: LinearGradient(
+          
+          colors:[
+            Colors.pink,
+            ColorConstants.purple,
+            ColorConstants.purple1
+          ]
+          )
+      ),
+      child: Center(child: Text("View All",style: GoogleFonts.montserrat(color: ColorConstants.white),)),
+    ),
+                   ],
+                 ),
+               ),
+               SizedBox(height: 50,),
+                Text("Men's Jewellery",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
+               SizedBox(height: 20,),
+               Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 16),
+                 child: Column(
+                   children: [
+                     SizedBox(
+                      height: 300,
+                       child: GridView.builder(
+                        itemCount: 6,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 10,
+                              crossAxisSpacing: 10,
+                              crossAxisCount: 3), 
+                            itemBuilder: (context,index)=>Column(
+                              children: [
+                                Container(
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage("https://images.pexels.com/photos/16109294/pexels-photo-16109294/free-photo-of-man-wearing-rattlesnake-tail-pendant-necklace-and-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=600")
+                                    )
+                                  ),
+                                ),
+                                Text(menJewelleryNames[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14),)
+                              ],
+                            )
+                            ),
+                     ),
+                     Container(
+      height: 30,
+      width: 70,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        gradient: LinearGradient(
+          
+          colors:[
+            Colors.pink,
+            ColorConstants.purple,
+            ColorConstants.purple1
+          ]
+          )
+      ),
+      child: Center(child: Text("View All",style: GoogleFonts.montserrat(color: ColorConstants.white),)),
+    ),
+                   ],
+                 ),
+               ),
+               SizedBox(height: 50,),
+                Text("Kid's Jewellery",style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 20,fontWeight: FontWeight.w600),),
+               SizedBox(height: 20,),
+               Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 16),
+                 child: Column(
+                   children: [
+                     SizedBox(
+                      height: 300,
+                       child: GridView.builder(
+                        itemCount: 6,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 10,
+                              crossAxisSpacing: 10,
+                              crossAxisCount: 3), 
+                            itemBuilder: (context,index)=>Column(
+                              children: [
+                                Container(
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage("https://images.pexels.com/photos/2848522/pexels-photo-2848522.jpeg?auto=compress&cs=tinysrgb&w=600")
+                                    )
+                                  ),
+                                ),
+                                Text(kidsJewelleryNames[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14),)
+                              ],
+                            )
+                            ),
+                     ),
+                     Container(
+      height: 30,
+      width: 70,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        gradient: LinearGradient(
+          
+          colors:[
+            Colors.pink,
+            ColorConstants.purple,
+            ColorConstants.purple1
+          ]
+          )
+      ),
+      child: Center(child: Text("View All",style: GoogleFonts.montserrat(color: ColorConstants.white),)),
+    ),
+                   ],
+                 ),
+               ),
+                  ]);
+  }
+
+  Padding _buildMasonryGridView() {
+    return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SizedBox(
+                    height: 630,
+                  child: MasonryGridView.builder(
+                  itemCount: 6,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                    
+                    crossAxisCount: 3),
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 20,
+                    
+                   itemBuilder: (context,index)=>
+                       Column(
+                         children: [
+                           Container(
+                            height: index.isEven?270:220,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage
+                              
+                              (
+                                
+                                fit: BoxFit.cover,
+                                image: NetworkImage(mason[index]))
+                            ),
+                           ),
+                           SizedBox(height: 5,),
+                           Text(masonText[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14),)
+                         ],
+                       ),
+                      
+                   ),
+                              ),
+              );
   }
 
   Column _buildGridAllIconicCollection() {

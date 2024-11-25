@@ -116,242 +116,250 @@ List<String> prices = [
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: GridView.builder(
-              itemCount: 10,
-              scrollDirection: Axis.vertical,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio: 3/4,mainAxisSpacing: 1),
-             itemBuilder: (context,index)=>Column(
-                                         crossAxisAlignment: CrossAxisAlignment.start,
-                                         children: [
-                                           Stack(
-                              children: [
-                               Padding(
-                                 padding: const EdgeInsets.all(14.0),
-                                 child: InkWell(
-                                  onTap: (){
-                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ProDetails(image: images[index],name: nameJewellery[index],rating: ratings[index],price: prices[index],)));
-                                  },
-                                   child: Container(
-                                   height: 230,
-                                   width: double.infinity,
-                                   
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(images[index])),
-                                      color: Colors.white,borderRadius: BorderRadius.circular(7)),
-                                                   ),
-                                 ),
-                               ),
-                               Positioned(
-                                right: 23,
-                                top: 20,
-                                 child: Icon(Icons.favorite_border_outlined,color: ColorConstants.purpledark,),
-                               ),
-                               Positioned(
-                                left: 23,
-                                top: 20,
-                                child:Container(
-                                
-                                          height: 25,
-                                          width: 75,
-                                          decoration: BoxDecoration(
-                                           
-                                            borderRadius: BorderRadius.circular(5),
-                                            color: const Color.fromARGB(255, 240, 181, 5)
-                                          ),
-                                          child: Center(child: Text("TRENDING",style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12,fontWeight: FontWeight.w600),)),
-                                        ), ),
-                                        Positioned(
-                bottom: 23,
-                left: 20,
-                child: Container(
-                  height: 25,
-                    width: 60,
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.white
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          
-                          
-                          Text(ratings[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 10,fontWeight: FontWeight.w500),),
-                           SizedBox(width: 5,),
-                          FaIcon(FontAwesomeIcons.solidStar,size: 10,color: Colors.amber,),
-                         
-                        ],
-                      ),
-                    ))
-                              ]
-                                           ),
-                                           SizedBox(height: 1,),
-                                           Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                              child: Text(nameJewellery[index],style: GoogleFonts.montserrat(color: ColorConstants.purple,fontWeight: FontWeight.bold,fontSize: 10),),
-                                           ),
-                                           SizedBox(height: 5,),
-                                           Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                              child: Text(prices[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontWeight: FontWeight.w600,fontSize: 12),),
-                                           ),
-                                           SizedBox(height: 5,),
-                                          
-                                           
-                                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                              child:Container(
-                                
-                                          height: 25,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: const Color.fromARGB(255, 15, 154, 20)),
-                                            borderRadius: BorderRadius.circular(5),
-                                            color: Colors.white
-                                          ),
-                                          child: Center(
-                                            child: Row(
-                                              children: [
-                                                Icon(Icons.video_call,color: const Color.fromARGB(255, 15, 154, 20),size: 20,),
-                                                Text("LIVE VIDEO CALL",style: GoogleFonts.montserrat(color: const Color.fromARGB(255, 15, 154, 20),fontSize: 12,fontWeight: FontWeight.w600),),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                           ),
-                                         ],
-                                       )
-                                       
-                                       ),
-          ),
-          Container(
-            padding: EdgeInsets.all(8),
-            height: 40,
-            color: Color.fromARGB(255, 62, 5, 50),
-            child: Row(
-              children: [
-                InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>CategoryScreen()));
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.category_outlined,color: Colors.white,size: 18,),
-                      Text("Categories",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),
-                    ],
-                  ),
-                ),
-                Spacer(),
-                
-                Text("|",style: GoogleFonts.montserrat(color: Colors.pink,fontSize: 12,fontWeight: FontWeight.w500),),
-                Spacer(),
-              
-                InkWell(
-                  onTap: (){
-                     showModalBottomSheet(
-                context: context,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                ),
-                builder: (context) =>
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: Container(
-                            width: 40,
-                            height: 4,
-                            decoration: BoxDecoration(
-                              color: ColorConstants.lightpurple,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        Center(
-                          child: Text(
-                            'Sort Designs By',
-                            style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 18,fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        ListTile(
-                          title: Text('Latest', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold),),
-                          onTap: () {
-                            
-                          },
-                        ),
-                        ListTile(
-                          title: Text('Discount', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
-                          onTap: () {
-                           
-                          },
-                        ),
-                        ListTile(
-                          title: Text('Featured', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
-                          onTap: () {
-                           
-                          },
-                        ),
-                        ListTile(
-                          title: Text('Price: Low to High', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
-                          onTap: () {
-                           
-                          },
-                        ),
-                        ListTile(
-                          title: Text('Price: High to Low', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
-                          onTap: () {
-                          }
-                        ),
-                        ListTile(
-                          title: Text('Customer Rating', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
-                          onTap: (){
+      body: _buildGridViewAllProduct(context),
+    );
+  }
 
-                          },
-                        ),
+  Column _buildGridViewAllProduct(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: GridView.builder(
+            itemCount: 10,
+            scrollDirection: Axis.vertical,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio: 3/4,mainAxisSpacing: 1),
+           itemBuilder: (context,index)=>Column(
+                                       crossAxisAlignment: CrossAxisAlignment.start,
+                                       children: [
+                                         Stack(
+                            children: [
+                             Padding(
+                               padding: const EdgeInsets.all(14.0),
+                               child: InkWell(
+                                onTap: (){
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ProDetails(image: images[index],name: nameJewellery[index],rating: ratings[index],price: prices[index],)));
+                                },
+                                 child: Container(
+                                 height: 230,
+                                 width: double.infinity,
+                                 
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(images[index])),
+                                    color: Colors.white,borderRadius: BorderRadius.circular(7)),
+                                                 ),
+                               ),
+                             ),
+                             Positioned(
+                              right: 23,
+                              top: 20,
+                               child: Icon(Icons.favorite_border_outlined,color: ColorConstants.purpledark,),
+                             ),
+                             Positioned(
+                              left: 23,
+                              top: 20,
+                              child:Container(
+                              
+                                        height: 25,
+                                        width: 75,
+                                        decoration: BoxDecoration(
+                                         
+                                          borderRadius: BorderRadius.circular(5),
+                                          color: const Color.fromARGB(255, 240, 181, 5)
+                                        ),
+                                        child: Center(child: Text("TRENDING",style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12,fontWeight: FontWeight.w600),)),
+                                      ), ),
+                                      Positioned(
+              bottom: 23,
+              left: 20,
+              child: Container(
+                height: 25,
+                  width: 60,
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.white
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        
+                        
+                        Text(ratings[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 10,fontWeight: FontWeight.w500),),
+                         SizedBox(width: 5,),
+                        FaIcon(FontAwesomeIcons.solidStar,size: 10,color: Colors.amber,),
+                       
                       ],
                     ),
-                  ),
-                  
-                     );
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.sort,color: Colors.white,size: 18,),
-                      Text("Sort",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),
-                    ],
-                  ),
+                  ))
+                            ]
+                                         ),
+                                         SizedBox(height: 1,),
+                                         Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                            child: Text(nameJewellery[index],style: GoogleFonts.montserrat(color: ColorConstants.purple,fontWeight: FontWeight.bold,fontSize: 10),),
+                                         ),
+                                         SizedBox(height: 5,),
+                                         Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                            child: Text(prices[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontWeight: FontWeight.w600,fontSize: 12),),
+                                         ),
+                                         SizedBox(height: 5,),
+                                        
+                                         
+                                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                            child:Container(
+                              
+                                        height: 25,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(color: const Color.fromARGB(255, 15, 154, 20)),
+                                          borderRadius: BorderRadius.circular(5),
+                                          color: Colors.white
+                                        ),
+                                        child: Center(
+                                          child: Row(
+                                            children: [
+                                              Icon(Icons.video_call,color: const Color.fromARGB(255, 15, 154, 20),size: 20,),
+                                              Text("LIVE VIDEO CALL",style: GoogleFonts.montserrat(color: const Color.fromARGB(255, 15, 154, 20),fontSize: 12,fontWeight: FontWeight.w600),),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                         ),
+                                       ],
+                                     )
+                                     
+                                     ),
+        ),
+        _buildBottomBarAllProduct(context)
+      ],
+    );
+  }
+
+  Container _buildBottomBarAllProduct(BuildContext context) {
+    return Container(
+          padding: EdgeInsets.all(8),
+          height: 40,
+          color: Color.fromARGB(255, 62, 5, 50),
+          child: Row(
+            children: [
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CategoryScreen()));
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.category_outlined,color: Colors.white,size: 18,),
+                    Text("Categories",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),
+                  ],
                 ),
-                Spacer(),
-                Text("|",style: GoogleFonts.montserrat(color: Colors.pink,fontSize: 12,fontWeight: FontWeight.w500),),
-                Spacer(),
-                InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FilterPage()));
-                  },
-                  child: Row(
+              ),
+              Spacer(),
+              
+              Text("|",style: GoogleFonts.montserrat(color: Colors.pink,fontSize: 12,fontWeight: FontWeight.w500),),
+              Spacer(),
+            
+              InkWell(
+                onTap: (){
+                   showModalBottomSheet(
+              context: context,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              builder: (context) =>
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.filter_tilt_shift,color: Colors.white,size: 18,),
-                      Text("Filter",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),
+                      Center(
+                        child: Container(
+                          width: 40,
+                          height: 4,
+                          decoration: BoxDecoration(
+                            color: ColorConstants.lightpurple,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      Center(
+                        child: Text(
+                          'Sort Designs By',
+                          style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 18,fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      ListTile(
+                        title: Text('Latest', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold),),
+                        onTap: () {
+                          
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Discount', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
+                        onTap: () {
+                         
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Featured', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
+                        onTap: () {
+                         
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Price: Low to High', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
+                        onTap: () {
+                         
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Price: High to Low', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
+                        onTap: () {
+                        }
+                      ),
+                      ListTile(
+                        title: Text('Customer Rating', style:GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 14,fontWeight: FontWeight.bold)),
+                        onTap: (){
+
+                        },
+                      ),
                     ],
                   ),
                 ),
                 
-              ],
-            ),
-          )
-        ],
-      ),
-    );
+                   );
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.sort,color: Colors.white,size: 18,),
+                    Text("Sort",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),
+                  ],
+                ),
+              ),
+              Spacer(),
+              Text("|",style: GoogleFonts.montserrat(color: Colors.pink,fontSize: 12,fontWeight: FontWeight.w500),),
+              Spacer(),
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FilterPage()));
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.filter_tilt_shift,color: Colors.white,size: 18,),
+                    Text("Filter",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),
+                  ],
+                ),
+              ),
+              
+            ],
+          ),
+        );
   }
 }

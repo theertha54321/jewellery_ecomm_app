@@ -86,39 +86,43 @@ class FilterPage extends StatelessWidget {
         ],
       ),
   
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorConstants.lightpurple,
-                  
-                  padding:  EdgeInsets.symmetric(vertical: 16),
-                ),
-                onPressed: () {
-                  
-                },
-                child:  Text("CLEAR ALL",style: GoogleFonts.montserrat(color: Colors.purple,fontSize: 12,fontWeight: FontWeight.w600)),
+      bottomNavigationBar: _buildBottomNavButtons(),
+    );
+  }
+
+  Padding _buildBottomNavButtons() {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: ColorConstants.lightpurple,
+                
+                padding:  EdgeInsets.symmetric(vertical: 16),
               ),
+              onPressed: () {
+                
+              },
+              child:  Text("CLEAR ALL",style: GoogleFonts.montserrat(color: Colors.purple,fontSize: 12,fontWeight: FontWeight.w600)),
             ),
-             SizedBox(width: 16),
-            Expanded(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
-                  
-                  padding:  EdgeInsets.symmetric(vertical: 16),
-                ),
-                onPressed: () {
-                  
-                },
-                child:  Text("APPLY FILTERS",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w600),)
+          ),
+           SizedBox(width: 16),
+          Expanded(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple,
+                
+                padding:  EdgeInsets.symmetric(vertical: 16),
               ),
+              onPressed: () {
+                
+              },
+              child:  Text("APPLY FILTERS",style: GoogleFonts.montserrat(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w600),)
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

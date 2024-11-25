@@ -27,21 +27,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image(
-              height: 50,
-              width: 50,
-              image: AssetImage(ImageConstants.applogo)),
-            SizedBox(height: 20,),
-            Text("Welcome back!",style: GoogleFonts.montserrat(fontSize: 18,fontWeight: FontWeight.w600,color:ColorConstants.purpledark),),
-            SizedBox(height: 10,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 70),
-              child: Text(
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                "Login to unlock best prices and become an insider for our exclusive launches offers.",
-              style: GoogleFonts.montserrat(fontSize: 12,color:ColorConstants.purpledark),),
-            ),
+            _buildLoginLogo(),
             SizedBox(height: 20,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -72,22 +58,7 @@ class LoginScreen extends StatelessWidget {
               
             ),
             SizedBox(height: 30,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("New to Caratlane?",style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12)),
-                SizedBox(width: 2,),
-                InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(
-                      
-                      builder: (context)=>CreateAccountScreen()
-                      )
-                    );
-                  },
-                  child: Text("Create Account",style: GoogleFonts.montserrat(color: ColorConstants.purple,fontSize: 12,fontWeight: FontWeight.w500),))
-              ],
-            ),
+            _buildLoginNavigation(context),
             SizedBox(height: 20,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -102,6 +73,47 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Row _buildLoginNavigation(BuildContext context) {
+    return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("New to Caratlane?",style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12)),
+              SizedBox(width: 2,),
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(
+                    
+                    builder: (context)=>CreateAccountScreen()
+                    )
+                  );
+                },
+                child: Text("Create Account",style: GoogleFonts.montserrat(color: ColorConstants.purple,fontSize: 12,fontWeight: FontWeight.w500),))
+            ],
+          );
+  }
+
+  Column _buildLoginLogo() {
+    return Column(
+            children: [
+              Image(
+                height: 50,
+                width: 50,
+                image: AssetImage(ImageConstants.applogo)),
+            
+          SizedBox(height: 20,),
+          Text("Welcome back!",style: GoogleFonts.montserrat(fontSize: 18,fontWeight: FontWeight.w600,color:ColorConstants.purpledark),),
+          SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 70),
+            child: Text(
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              "Login to unlock best prices and become an insider for our exclusive launches offers.",
+            style: GoogleFonts.montserrat(fontSize: 12,color:ColorConstants.purpledark),),
+          ),
+            ]);
   }
 }
 

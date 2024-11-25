@@ -34,88 +34,92 @@ class Wishlistscreen extends StatelessWidget {
         child: ListView.builder(
           itemCount: 4,
           itemBuilder: (context,index)=>
-          Card(
-            
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            elevation: 3,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network(
-                      'https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=600', // Replace with product image URL
-                      width: 100,
-                      height: 110,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        
-                        Text(
-                          'Elle Interlooped Cutout...',
-                          style: GoogleFonts.montserrat(color: Colors.black,fontSize: 14,fontWeight: FontWeight.w500),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: 8),
-                        
-                        Text(
-                          '₹21,468',
-                         style: GoogleFonts.montserrat(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(height: 16),
-                       
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green,
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                              onPressed: () {
-                                
-                              },
-                              child: Text('Move to Cart',style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12,fontWeight: FontWeight.w500),),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                
-                              },
-                              icon: Icon(Icons.share, color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                
-                IconButton(
-                  onPressed: () {
-                   
-                  },
-                  icon: Icon(Icons.close, color: Colors.black),
-                ),
-              ],
-            ),
-          ),
+          _buildWishlistCard(),
         ),
       ),
     );
+  }
+
+  Card _buildWishlistCard() {
+    return Card(
+          
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          elevation: 3,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.network(
+                    'https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=600', // Replace with product image URL
+                    width: 100,
+                    height: 110,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      
+                      Text(
+                        'Elle Interlooped Cutout...',
+                        style: GoogleFonts.montserrat(color: Colors.black,fontSize: 14,fontWeight: FontWeight.w500),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 8),
+                      
+                      Text(
+                        '₹21,468',
+                       style: GoogleFonts.montserrat(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(height: 16),
+                     
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                            onPressed: () {
+                              
+                            },
+                            child: Text('Move to Cart',style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12,fontWeight: FontWeight.w500),),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              
+                            },
+                            icon: Icon(Icons.share, color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              
+              IconButton(
+                onPressed: () {
+                 
+                },
+                icon: Icon(Icons.close, color: Colors.black),
+              ),
+            ],
+          ),
+        );
   }
 }

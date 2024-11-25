@@ -73,7 +73,7 @@ List codes = [
 "+910"
 
 ];
-
+// countrycode function in textformfield
   void _showCountryCodeBottomSheet(BuildContext context) {
     showModalBottomSheet(
       
@@ -133,7 +133,7 @@ List codes = [
                     itemCount: countries.length,
                     itemBuilder: (context, index) => ListTile(
                       leading: Text(
-                        images[index], // Use emoji as a flag
+                        images[index],
                         style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 15,fontWeight: FontWeight.w600),
                       ),
                       title: Text(countries[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontWeight: FontWeight.w600,fontSize: 12),),
@@ -143,7 +143,7 @@ List codes = [
                           selectedFlag = images[index];
                           selectedCode = codes[index];
                         });
-                        Navigator.pop(context); // Close the bottom sheet
+                        Navigator.pop(context); 
                       },
                     ),
                   ),
@@ -196,150 +196,21 @@ List codes = [
               SizedBox(height: 40,),
               Text("Select date",style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12,)),
                SizedBox(height: 10,),
-              SizedBox(
-                height: 120,
-                child: ListView.builder(
-                  
-                  
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 8,
-                  itemBuilder: (context,index){
-                    bool isSelected = index == selectedIndex;
-                    return GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          selectedIndex=index;
-                        });
-                      },
-                     child:  Padding(
-                       padding: const EdgeInsets.only(right: 5),
-                       child: Container(
-                        height: 290,
-                        width: 80,
-                                       padding: EdgeInsets.all(8),
-                                       decoration: BoxDecoration(
-                                         border: Border.all(color:  isSelected?Colors.orange:const Color.fromARGB(255, 235, 217, 163)),
-                                         borderRadius: BorderRadius.circular(9),
-                                         color: isSelected?Color.fromARGB(255, 234, 206, 115):const Color.fromARGB(255, 235, 217, 163)
-                                       ),
-                                       child:Column(
-                                         crossAxisAlignment: CrossAxisAlignment.center,
-                                         mainAxisAlignment: MainAxisAlignment.center,
-                                         children: [
-                        Text(dates[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 10),),
-                        Text(dates2[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 18,fontWeight: FontWeight.w500),)
-                                         ],
-                                       ),
-                                     ),
-                     )
-                    );
-                  }
-                  
-                  
-                  ),
-              ),
+              _buildDateList(),
               SizedBox(height: 40,),
               Text("Select timing",style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12,)),
                SizedBox(height: 10,),
-                SizedBox(
-                height: 190,
-               
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,childAspectRatio: 8/2,mainAxisSpacing: 5,crossAxisSpacing: 5),
-                 physics: NeverScrollableScrollPhysics(),
-                  itemCount: 10,
-                  
-                  itemBuilder: (context,index){
-                    bool isSelected = index == selectedIndex;
-                    return GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          selectedIndex=index;
-                        });
-                      },
-                     child:  Container(
-                      height: 20,
-                      width: 80,
-                                     padding: EdgeInsets.all(8),
-                                     decoration: BoxDecoration(
-                                       border: Border.all(color:  isSelected?Colors.orange:const Color.fromARGB(255, 235, 217, 163)),
-                                       borderRadius: BorderRadius.circular(9),
-                                       color: isSelected?Color.fromARGB(255, 234, 206, 115):const Color.fromARGB(255, 235, 217, 163)
-                                     ),
-                                     child:Center(child: Text(timeSlots[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 10),)),
-                                   )
-                    );
-                  }
-                  
-                  
-                  ),
-              ),
+                _buildSelectTiming(),
                SizedBox(height: 10,),
               Text("Contact Details",style: GoogleFonts.montserrat(color: Colors.black,fontSize: 12,)),
                SizedBox(height: 10,),
                CustomInputField(htext: "Enter Name*",),
                 SizedBox(height: 10,),
-               TextFormField(
-                 cursorColor: ColorConstants.grey.withOpacity(.7),
-                 decoration: InputDecoration(
-                   
-                   border: OutlineInputBorder(
-                     borderSide: BorderSide(color: ColorConstants.grey.withOpacity(.4),width: 1),
-                      borderRadius: BorderRadius.circular(12)
-                   ),
-                    enabledBorder: OutlineInputBorder(
-                         borderSide: BorderSide(color: ColorConstants.grey.withOpacity(.4),width: 1),
-                           borderRadius: BorderRadius.circular(12)
-                   
-                         ),
-               focusedBorder: OutlineInputBorder(
-               borderSide: BorderSide(color: ColorConstants.purpledark),
-                borderRadius: BorderRadius.circular(12),
-                         
-                         ),
-                   floatingLabelBehavior: FloatingLabelBehavior.auto,
-                   prefixIcon:GestureDetector(
-                     onTap: (){
-                       _showCountryCodeBottomSheet(context);
-                     },
-                     child: Container(
-                       padding: EdgeInsets.symmetric(horizontal: 15),
-                       child: Row(
-                         mainAxisSize: MainAxisSize.min,
-               
-                         children: [
-                           Text(selectedFlag,style: GoogleFonts.montserrat( fontSize: 12,color: ColorConstants.purpledark,fontWeight: FontWeight.w600),),
-                           SizedBox(width: 4,),
-                           Text(selectedCode,style: GoogleFonts.montserrat( fontSize: 12,color: ColorConstants.purpledark,fontWeight: FontWeight.w600),),
-                           Icon(Icons.arrow_drop_down,size: 14,color: ColorConstants.purpledark),
-                          
-               
-                       ],),
-               
-                     ),
-                   ),
-                   prefixIconConstraints: BoxConstraints(minWidth: 0,minHeight: 0)
-                 ),
-                 
-               ),
+               _buildTextFormFieldWithCountryCodeBottomSheet(context),
                 SizedBox(height: 10,),
                CustomInputField(htext: "Email*",),
                 SizedBox(height: 40,),
-                Container(
-        height: 45,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(
-            
-            colors:[
-              Colors.orange,
-              Colors.red
-            ]
-            )
-        ),
-        child: Center(child: Text("BOOK STORE APPOINTMENT",style: GoogleFonts.montserrat(color: ColorConstants.white,fontSize: 12,fontWeight: FontWeight.w600),)),
-      ),
+                _buildStoreButton(),
       SizedBox(height: 20,)
 
           
@@ -348,5 +219,150 @@ List codes = [
         ),
       ),
     );
+  }
+
+  Container _buildStoreButton() {
+    return Container(
+      height: 45,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        gradient: LinearGradient(
+          
+          colors:[
+            Colors.orange,
+            Colors.red
+          ]
+          )
+      ),
+      child: Center(child: Text("BOOK STORE APPOINTMENT",style: GoogleFonts.montserrat(color: ColorConstants.white,fontSize: 12,fontWeight: FontWeight.w600),)),
+    );
+  }
+
+  TextFormField _buildTextFormFieldWithCountryCodeBottomSheet(BuildContext context) {
+    return TextFormField(
+               cursorColor: ColorConstants.grey.withOpacity(.7),
+               decoration: InputDecoration(
+                 
+                 border: OutlineInputBorder(
+                   borderSide: BorderSide(color: ColorConstants.grey.withOpacity(.4),width: 1),
+                    borderRadius: BorderRadius.circular(12)
+                 ),
+                  enabledBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: ColorConstants.grey.withOpacity(.4),width: 1),
+                         borderRadius: BorderRadius.circular(12)
+                 
+                       ),
+             focusedBorder: OutlineInputBorder(
+             borderSide: BorderSide(color: ColorConstants.purpledark),
+              borderRadius: BorderRadius.circular(12),
+                       
+                       ),
+                 floatingLabelBehavior: FloatingLabelBehavior.auto,
+                 prefixIcon:GestureDetector(
+                   onTap: (){
+                     _showCountryCodeBottomSheet(context);
+                   },
+                   child: Container(
+                     padding: EdgeInsets.symmetric(horizontal: 15),
+                     child: Row(
+                       mainAxisSize: MainAxisSize.min,
+             
+                       children: [
+                         Text(selectedFlag,style: GoogleFonts.montserrat( fontSize: 12,color: ColorConstants.purpledark,fontWeight: FontWeight.w600),),
+                         SizedBox(width: 4,),
+                         Text(selectedCode,style: GoogleFonts.montserrat( fontSize: 12,color: ColorConstants.purpledark,fontWeight: FontWeight.w600),),
+                         Icon(Icons.arrow_drop_down,size: 14,color: ColorConstants.purpledark),
+                        
+             
+                     ],),
+             
+                   ),
+                 ),
+                 prefixIconConstraints: BoxConstraints(minWidth: 0,minHeight: 0)
+               ),
+               
+             );
+  }
+
+  SizedBox _buildSelectTiming() {
+    return SizedBox(
+              height: 190,
+             
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,childAspectRatio: 8/2,mainAxisSpacing: 5,crossAxisSpacing: 5),
+               physics: NeverScrollableScrollPhysics(),
+                itemCount: 10,
+                
+                itemBuilder: (context,index){
+                  bool isSelected = index == selectedIndex;
+                  return GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        selectedIndex=index;
+                      });
+                    },
+                   child:  Container(
+                    height: 20,
+                    width: 80,
+                                   padding: EdgeInsets.all(8),
+                                   decoration: BoxDecoration(
+                                     border: Border.all(color:  isSelected?Colors.orange:const Color.fromARGB(255, 235, 217, 163)),
+                                     borderRadius: BorderRadius.circular(9),
+                                     color: isSelected?Color.fromARGB(255, 234, 206, 115):const Color.fromARGB(255, 235, 217, 163)
+                                   ),
+                                   child:Center(child: Text(timeSlots[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 10),)),
+                                 )
+                  );
+                }
+                
+                
+                ),
+            );
+  }
+
+  SizedBox _buildDateList() {
+    return SizedBox(
+              height: 120,
+              child: ListView.builder(
+                
+                
+                scrollDirection: Axis.horizontal,
+                itemCount: 8,
+                itemBuilder: (context,index){
+                  bool isSelected = index == selectedIndex;
+                  return GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        selectedIndex=index;
+                      });
+                    },
+                   child:  Padding(
+                     padding: const EdgeInsets.only(right: 5),
+                     child: Container(
+                      height: 290,
+                      width: 80,
+                                     padding: EdgeInsets.all(8),
+                                     decoration: BoxDecoration(
+                                       border: Border.all(color:  isSelected?Colors.orange:const Color.fromARGB(255, 235, 217, 163)),
+                                       borderRadius: BorderRadius.circular(9),
+                                       color: isSelected?Color.fromARGB(255, 234, 206, 115):const Color.fromARGB(255, 235, 217, 163)
+                                     ),
+                                     child:Column(
+                                       crossAxisAlignment: CrossAxisAlignment.center,
+                                       mainAxisAlignment: MainAxisAlignment.center,
+                                       children: [
+                      Text(dates[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 10),),
+                      Text(dates2[index],style: GoogleFonts.montserrat(color: ColorConstants.purpledark,fontSize: 18,fontWeight: FontWeight.w500),)
+                                       ],
+                                     ),
+                                   ),
+                   )
+                  );
+                }
+                
+                
+                ),
+            );
   }
 }
